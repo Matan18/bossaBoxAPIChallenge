@@ -1,0 +1,23 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "bossaBox",
+  "logging": true,
+  "entities": [
+    "src/**/entities/*.ts"
+  ],
+  "migrations": [
+    "src/typeorm/migration/**/*.ts"
+  ],
+  "subscribers": [
+    "src/subscriber/**/*.ts"
+  ],
+  "cli": {
+    "entitiesDir": "src/**/entities/",
+    "migrationsDir": "src/typeorm/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
