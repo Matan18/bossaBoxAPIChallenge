@@ -1,6 +1,5 @@
-import { Repository } from 'typeorm';
+import { Repository, getRepository } from 'typeorm';
 import IToolRepository from '../../Repositories/IToolRepository';
-import connect from "../../../typeorm/connection";
 import Tool from '../entities/Tools';
 
 interface IToolRequest {
@@ -10,6 +9,7 @@ interface IToolRequest {
   title: string;
 }
 interface IToolUpdateRequest {
+  id: string;
   description: string | undefined;
   link: string | undefined;
   tags: string[] | undefined;
@@ -20,9 +20,7 @@ export default class ToolsRepository implements IToolRepository {
   private ormRepository: Repository<Tool>;
 
   constructor() {
-    connect.then(connection =>
-      this.ormRepository =
-      connection.getRepository(Tool));
+    this.ormRepository = getRepository(Tool);
   }
 
   public async createTool({
@@ -56,10 +54,10 @@ export default class ToolsRepository implements IToolRepository {
     return tools;
   }
 
-  public async update(toolId: string, {
+  public async update({ id,
     link, description, tags,
   }: IToolUpdateRequest): Promise<Tool> {
-    let tool = await this.ormRepository.findOne({ where: { id: toolId } });
+    let tool = await this.ormRepository.findOne({ where: { id } });
     tool.link = link ? link : tool.link;
     tool.tags = tags ? tags : tool.tags;
     tool.description = description ? description : tool.description;

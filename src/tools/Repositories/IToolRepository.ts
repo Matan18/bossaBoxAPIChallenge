@@ -5,5 +5,5 @@ export default interface IToolRepository {
   deleteTool(id: string): Promise<void>;
   index(): Promise<Tool[]>;
   search(tags: string): Promise<Tool[]>;
-  update(toolId: string, tool: Pick<Tool, 'description' | 'link' | 'title' | 'tags'>): Promise<Tool>;
+  update(tool: Pick<Tool, 'description' | 'link' | 'title' | 'tags' | 'id'>): Promise<Tool>;
 };
