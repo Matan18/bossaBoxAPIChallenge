@@ -5,19 +5,9 @@
   "username": "postgres",
   "password": "docker",
   "database": "bossaBox",
-  "logging": true,
-  "entities": [
-    "src/**/entities/*.ts"
-  ],
-  "migrations": [
-    "src/typeorm/migration/**/*.ts"
-  ],
-  "subscribers": [
-    "src/subscriber/**/*.ts"
-  ],
+  "entities": ["src/**/entities/*.ts"],
+  "migrations": ["src/shared/typeorm/migration/**/*.ts"],
   "cli": {
-    "entitiesDir": "src/**/entities/",
-    "migrationsDir": "src/typeorm/migration",
-    "subscribersDir": "src/subscriber"
+    "migrationsDir": "src/shared/typeorm/migration"
   }
 }

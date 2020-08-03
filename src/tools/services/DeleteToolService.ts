@@ -1,6 +1,7 @@
 import IToolRepository from "../Repositories/IToolRepository";
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 export default class DeleteToolService {
   constructor(
     @inject('ToolsRepository')

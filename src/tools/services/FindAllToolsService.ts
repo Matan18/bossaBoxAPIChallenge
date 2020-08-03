@@ -1,7 +1,8 @@
 import IToolRepository from "../Repositories/IToolRepository";
 import Tool from "../typeorm/entities/Tools";
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 export default class FindAllToolsService {
   constructor(
     @inject('ToolsRepository')

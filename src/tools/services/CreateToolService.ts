@@ -1,5 +1,5 @@
 import IToolRepository from "../Repositories/IToolRepository";
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 import Tool from "../typeorm/entities/Tools";
 
 export interface IServiceRequest {
@@ -9,6 +9,7 @@ export interface IServiceRequest {
   tags: string[];
 }
 
+@injectable()
 export default class CreateToolService {
   constructor(
     @inject('ToolsRepository')

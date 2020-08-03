@@ -18,7 +18,6 @@ export default class ToolsController {
     return response.json(tool);
   }
   public async index(request: Request, response: Response): Promise<Response> {
-
     const { tag } = request.query
     if (tag) {
       const searchTools = container.resolve(SearchToolService)
@@ -36,10 +35,12 @@ export default class ToolsController {
   }
   public async update(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
+
     const { title, link, description, tags } = request.body;
     const updateTool = container.resolve(UpdateToolService);
 
     const tool = await updateTool.execute({ id, title, link, description, tags });
+
     return response.json(tool)
   }
   public async delete(request: Request, response: Response): Promise<Response> {
