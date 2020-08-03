@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import toolRoutes from "./toolRoutes";
+import "./typeorm/connection";
+import toolRoutes from "../tools/http/routes/toolRoutes.routes";
 
 const app = express();
 
