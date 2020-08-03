@@ -1,8 +1,9 @@
 import express from "express";
 import cors from "cors";
-import "./typeorm/connection";
+import createConnection from "./typeorm/connection";
 import toolRoutes from "../tools/http/routes/toolRoutes.routes";
 
+createConnection();
 const app = express();
 
 app.use(cors());
