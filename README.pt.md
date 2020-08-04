@@ -26,7 +26,7 @@ Esse é um desafio de api da BossaBox para começar no site, é necessário cria
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
 
-## Tenologias
+## Tecnologias
 * [Express (NodeJS)](https://github.com/expressjs/express)
 * [TypeScrypt](https://github.com/Microsoft/TypeScript)
 * [TypeORM]()
