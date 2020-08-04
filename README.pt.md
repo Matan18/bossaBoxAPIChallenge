@@ -9,7 +9,7 @@
       - [Services](#services)
       - [Controller](#controller)
       - [Routes](#routes)
-    - [Diagrama da API (blueprint)](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.md)
+    - [Diagrama da API (blueprint)](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.pt.md)
      - [License](#license)
 
 
@@ -57,6 +57,10 @@ O que eu quero dizer com essa parte seria mais útil em um projeto maior, é que
 ### Router
 
 Essa parte da aplicação deve receber a requisição, e mandar para o função correta do controller, um pouco simples eu diria, aproveitei da facilidade do express pra adicionar uma condição na requisição GET (tools), assim, se essa requisição tiver um parâmetro do tipo query chamada tags, eu mando pra filtragem, se não mando listar tudo, assim eu consigo manter a mesma rota pras 2 opções;
+
+### Diagrama da API
+
+Clique [aqui](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.pt.md) para acessar o diagrama da API
 
 ### License
 
