@@ -3,7 +3,7 @@ import Tool from "../infra/typeorm/entities/Tools";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
-export default class SearchToolService {
+export default class SearchToolsService {
   constructor(
     @inject('ToolsRepository')
     private toolsRepository: IToolRepository

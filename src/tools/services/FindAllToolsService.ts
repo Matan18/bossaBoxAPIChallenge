@@ -9,7 +9,7 @@ export default class FindAllToolsService {
     private toolsRepository: IToolRepository
   ) { }
   public async execute(): Promise<Tool[]> {
-    const tools = await this.toolsRepository.index();
+    const tools = await this.toolsRepository.findAllTools();
     return tools;
   }
 }
