@@ -2,6 +2,7 @@ import supertest from "supertest";
 import app from "../src/shared/app";
 import createConnection from "../src/shared/infra/typeorm/connection";
 import { Connection, getConnection } from "typeorm";
+import { response } from "express";
 
 let connection: Connection;
 
@@ -113,6 +114,91 @@ describe("Test on requests", () => {
         title: 'hotel'
       })]))
   });
+
+  it('should be able to list tools by tag', async () => {
+    await supertest(app)
+      .post('/tools')
+      .send({
+        title: "json-server",
+        link: "https://github.com/typicode/json-server",
+        description: "Fake REST API based on a json schema. Useful for mocking and creating APIs for front-end devs to consume in coding challenges.",
+        tags: [
+          "api",
+          "json",
+          "schema",
+          "node",
+          "github"
+        ]
+      })
+      .set("Accept", 'application/json')
+    await supertest(app)
+      .post('/tools')
+      .send({
+        title: "fastify",
+        link: "https://www.fastify.io/",
+        description: "Extremely fast and simple, low-overhead web framework for NodeJS. Supports HTTP2.",
+        tags: [
+          "web",
+          "framework",
+          "node",
+          "http2",
+          "https",
+          "localhost",
+          "same-tag"
+        ]
+      })
+      .set("Accept", 'application/json')
+    await supertest(app)
+      .post('/tools')
+      .send({
+        "title": "hotel",
+        "link": "https://github.com/typicode/hotel",
+        "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+        "tags": [
+          "node",
+          "organizing",
+          "webapps",
+          "domain",
+          "developer",
+          "https",
+          "proxy",
+          "same-tag"
+        ]
+      })
+      .set("Accept", 'application/json')
+
+    const response = await supertest(app)
+      .get('/tools?tag=same-tag');
+    expect(response.body.length).toEqual(2);
+    expect(response.body).toEqual(expect.arrayContaining([
+      expect.objectContaining({ title: "hotel" }),
+      expect.objectContaining({ title: "fastify" })
+    ]))
+  })
+
+  it('should be able to find a tool by id', async () => {
+    const response = await supertest(app)
+      .post('/tools')
+      .send(tool)
+      .set("Accept", 'application/json')
+    const { id } = response.body;
+    const findResponse = await supertest(app)
+      .get(`/tools/${id}`)
+
+    expect(findResponse.body).toEqual(response.body);
+  })
+
+  it('should not be able to find a tool with invalid id', async () => {
+    const response = await supertest(app)
+      .post('/tools')
+      .send(tool)
+      .set("Accept", 'application/json')
+    const { id } = response.body;
+    const findResponse = await supertest(app)
+      .get('/tools/invalid-id')
+
+    expect(findResponse.status).toEqual(404);
+  })
 
   it('should be able to delete a tool by id', async () => {
     const res = await supertest(app)
