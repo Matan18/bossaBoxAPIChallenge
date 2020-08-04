@@ -23,6 +23,16 @@ export default class ToolsRepository implements IToolRepository {
     this.ormRepository = getRepository(Tool);
   }
 
+  public async findById(id: string): Promise<Tool> {
+    const tool = await this.ormRepository.findOneOrFail(id);
+    return tool;
+  }
+
+  public async findByTitle(title: string): Promise<Tool | undefined> {
+    const tool = await this.ormRepository.findOne({ where: { title } })
+    return tool;
+  }
+
   public async createTool({
     title, link, description, tags,
   }: IToolRequest): Promise<Tool> {
@@ -40,14 +50,13 @@ export default class ToolsRepository implements IToolRepository {
     await this.ormRepository.delete(id);
   }
 
-  public async index(): Promise<Tool[]> {
+  public async findAllTools(): Promise<Tool[]> {
     const tools = await this.ormRepository.find();
 
     return tools;
   }
 
   public async search(tag: string): Promise<Tool[]> {
-    console.log("Tag:", tag)
     const tools = await this.ormRepository.createQueryBuilder('tool')
       .where('(:tags) <@ (tool.tags)', { tags: [tag] }).getMany();
 
