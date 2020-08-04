@@ -7,15 +7,24 @@ import CreateToolService from "../../services/CreateToolService";
 import SearchToolService from "../../services/SearchToolService";
 import FindAllToolsService from "../../services/FindAllToolsService";
 import UpdateToolService from "../../services/UpdateToolService";
+import { QueryFailedError } from "typeorm";
 
 export default class ToolsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { title, link, description, tags } = request.body;
     const createTool = container.resolve(CreateToolService)
 
-    const tool = await createTool.execute({ title, link, description, tags })
+    try {
+      const tool = await createTool.execute({ title, link, description, tags })
+      return response.status(201).json(tool);
 
-    return response.json(tool);
+    } catch (error) {
+      if (error instanceof QueryFailedError) {
+        return response.status(409).json({ message: "Tool Already Exists" })
+      }
+      return response.status(500).json({ message: "We had a internal server error" })
+    }
+
   }
   public async index(request: Request, response: Response): Promise<Response> {
     const { tag } = request.query
@@ -36,10 +45,10 @@ export default class ToolsController {
   public async update(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    const { title, link, description, tags } = request.body;
+    const { link, description, tags } = request.body;
     const updateTool = container.resolve(UpdateToolService);
 
-    const tool = await updateTool.execute({ id, title, link, description, tags });
+    const tool = await updateTool.execute({ id, link, description, tags });
 
     return response.json(tool)
   }
@@ -47,8 +56,16 @@ export default class ToolsController {
     const { id } = request.params;
     const toolsRepository = new ToolsRepository();
 
+    try {
 
-    await toolsRepository.deleteTool(id);
+      await toolsRepository.deleteTool(id);
+
+    } catch (error) {
+      if (error instanceof QueryFailedError) {
+        return response.status(404).json({ message: "Invalid Id" })
+      }
+      return response.status(500).json({ message: "We had a internal server error" })
+    }
 
     return response.status(204).json();
   }

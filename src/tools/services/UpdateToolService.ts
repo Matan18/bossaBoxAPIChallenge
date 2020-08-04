@@ -4,7 +4,6 @@ import { inject, injectable } from "tsyringe";
 
 export interface IServiceRequest {
   id: string;
-  title: string;
   description: string;
   link: string;
   tags: string[];
