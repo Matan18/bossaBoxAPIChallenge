@@ -9,7 +9,7 @@
       - [Services](#services)
       - [Controller](#controller)
       - [Routes](#routes)
-    - [API blueprint](#api)
+    - [API blueprint](#api_blueprint)
      - [License](#license)
 
 
