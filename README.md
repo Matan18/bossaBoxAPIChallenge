@@ -9,6 +9,7 @@
       - [Services](#services)
       - [Controller](#controller)
       - [Routes](#routes)
+    - [API blueprint](#api)
      - [License](#license)
 
 
@@ -54,6 +55,10 @@ What I mean by this part is will be more useful latter is that, if I had a to wo
 ### Routes
 
 This part of the aplication must recieve the request, and send this to the right controller function, a little simple, I just added a condition in get(tools) by if there's a query named tag, will call diferent controller. This way I was able to keep the same route for both listing and filtering;
+
+### API Blueprint
+
+Click [here](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.md) to access the blueprint of the aplication
 
 ### License
 
