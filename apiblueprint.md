@@ -12,11 +12,11 @@ Resources related to tools in the API.
 
 ## Tools collection [/tools]
 
-### List all Tools [GET /tools]
+### List all Tools [GET]
 
 List all tools in order of publication
 
- - Response 200 (application/json)
+ + Response 200 (application/json)
     - Body
     
           [
@@ -38,11 +38,11 @@ List all tools in order of publication
           ]
           
           
-### Search Tool [GET /tools?tag={string}]
+### Search Tool [GET ?tag={string}]
 
 List tools by tag specified in order of publication
 
-- Response 200
++ Response 200
   - Body
   
         [
@@ -64,11 +64,11 @@ List tools by tag specified in order of publication
           ]
 
 
-### Create a New Tool [POST /tools]
+### Create a New Tool [POST]
 
 Will create a new tool. It takes a JSON object containing the properties of the tool, it return all properties of the tool in database;
 
-- Request (application/json)
++ Request (application/json)
   - Body
 
         {
@@ -83,7 +83,7 @@ Will create a new tool. It takes a JSON object containing the properties of the 
                     "calendar" 
                   ]
         }
-- Response 201 (application/json)
++ Response 201 (application/json)
   - Body
   
         {
@@ -102,11 +102,11 @@ Will create a new tool. It takes a JSON object containing the properties of the 
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Update Tool [PUT /tools/{id}]
+### Update Tool [PUT /{id}]
 
 Will update a tool by ID. It takes a JSON object containing the properties of the tool except by title and id, it return all properties of the tool in database
 
-- Request (application/json)
++ Request (application/json)
   - Body
   
         {
@@ -121,7 +121,7 @@ Will update a tool by ID. It takes a JSON object containing the properties of th
                     "anotation"
                   ],
         }
-- Response 200 (application/json)
++ Response 200 (application/json)
   - Body
   
         {
@@ -141,6 +141,6 @@ Will update a tool by ID. It takes a JSON object containing the properties of th
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Delete Tool [DEL /tools/{id}]
+### Delete Tool [DEL /{id}]
 
-- Response 204 
++ Response 204 
