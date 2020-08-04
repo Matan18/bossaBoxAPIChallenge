@@ -4,17 +4,17 @@ FORMAT: A1
 
 # Bossa Box API Challenge
 
-This is an API Blueprint example describing the entire API
+Esse é o diagrama da API descrevendo a API
 
 # Group Tools
 
-Resources related to tools in the API.
+Recursos relacionados as tools na API.
 
 ## Tools collection [/tools]
 
-### List all Tools [GET]
+### Lista todas as ferramentas [GET]
 
-List all tools in order of publication
+Lista todas as ferramentas na ordem de publicação.
 
  - Response 200 (application/json)
     - Body
@@ -38,9 +38,9 @@ List all tools in order of publication
           ]
           
           
-### Search Tool [GET ?tag={string}]
+### Pesquisar Tools [GET ?tag={string}]
 
-List tools by tag specified in order of publication
+Lista as ferramentas através da tag especificada em ordem de publicação.
 
 - Response 200
   - Body
@@ -64,9 +64,9 @@ List tools by tag specified in order of publication
           ]
 
 
-### Create a New Tool [POST]
+### Criar ferramenta nova [POST]
 
-Will create a new tool. It takes a JSON object containing the properties of the tool, it return all properties of the tool in database;
+Vai criar uma nova ferramenta. Recebe um objeto JSON contendo as propriedades da ferramenta, returna todas as propriedades da ferramenta no banco de dados.
 
 - Request (application/json)
   - Body
@@ -102,9 +102,9 @@ Will create a new tool. It takes a JSON object containing the properties of the 
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Update Tool [PUT /{id}]
+### Atualizar Ferramenta [PUT /{id}]
 
-Will update a tool by ID. It takes a JSON object containing the properties of the tool except by title and id, it return all properties of the tool in database
+Vai atualizar a ferramenta pelo Id. Recebe um objeto contendo as propriedades da ferramenta exceto o título e id, returna todas as propriedades da ferramenta no banco de dados.
 
 - Request (application/json)
   - Body
@@ -141,6 +141,6 @@ Will update a tool by ID. It takes a JSON object containing the properties of th
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Delete Tool [DEL /{id}]
+### Deleta Ferramenta [DEL /{id}]
 
 - Response 204 
