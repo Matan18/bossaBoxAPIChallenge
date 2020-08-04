@@ -6,8 +6,8 @@
   "password": "docker",
   "database": "bossaBox",
   "entities": ["src/**/entities/*.ts"],
-  "migrations": ["src/shared/typeorm/migration/**/*.ts"],
+  "migrations": ["src/shared/infra/typeorm/migration/**/*.ts"],
   "cli": {
-    "migrationsDir": "src/shared/typeorm/migration"
+    "migrationsDir": "src/shared/infra/typeorm/migration"
   }
 }

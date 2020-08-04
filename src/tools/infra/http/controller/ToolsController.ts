@@ -3,10 +3,10 @@ import { Request, Response } from "express";
 
 import ToolsRepository from "../../typeorm/repository/ToolsRepository";
 
-import CreateToolService from "../../services/CreateToolService";
-import SearchToolService from "../../services/SearchToolService";
-import FindAllToolsService from "../../services/FindAllToolsService";
-import UpdateToolService from "../../services/UpdateToolService";
+import CreateToolService from "../../../services/CreateToolService";
+import SearchToolService from "../../../services/SearchToolService";
+import FindAllToolsService from "../../../services/FindAllToolsService";
+import UpdateToolService from "../../../services/UpdateToolService";
 import { QueryFailedError } from "typeorm";
 
 export default class ToolsController {

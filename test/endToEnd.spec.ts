@@ -1,7 +1,7 @@
 import supertest from "supertest";
 import app from "../src/shared/app";
-import createConnection from "../src/shared/typeorm/connection";
-import { Connection, getConnection, LessThanOrEqual } from "typeorm";
+import createConnection from "../src/shared/infra/typeorm/connection";
+import { Connection, getConnection } from "typeorm";
 
 let connection: Connection;
 

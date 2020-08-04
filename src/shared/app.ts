@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import createConnection from "./typeorm/connection";
-import toolRoutes from "../tools/http/routes/toolRoutes.routes";
+import createConnection from "./infra/typeorm/connection";
+import toolRoutes from "../tools/infra/http/routes/toolRoutes.routes";
 import "./container"
 
 createConnection();

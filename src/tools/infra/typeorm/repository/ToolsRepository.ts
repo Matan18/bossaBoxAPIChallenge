@@ -1,5 +1,5 @@
 import { Repository, getRepository } from 'typeorm';
-import IToolRepository from '../../Repositories/IToolRepository';
+import IToolRepository from '../../../Repositories/IToolRepository';
 import Tool from '../entities/Tools';
 
 interface IToolRequest {

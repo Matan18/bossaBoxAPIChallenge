@@ -1,6 +1,6 @@
 import IToolRepository from "../Repositories/IToolRepository";
 import { inject, injectable } from "tsyringe";
-import Tool from "../typeorm/entities/Tools";
+import Tool from "../infra/typeorm/entities/Tools";
 
 export interface IServiceRequest {
   title: string;
