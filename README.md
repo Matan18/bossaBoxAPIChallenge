@@ -9,7 +9,7 @@
       - [Services](#cervices)
       - [Controller](#controller)
       - [Routes](#routes)
-      - [Licence](#licence
+      - [Licence](#licence)
 
 
 This is an API challenged by bossaBox to start on the site, is necessary to create a CRUD with dev tools, which will be created with title, link, description and tags properties.
