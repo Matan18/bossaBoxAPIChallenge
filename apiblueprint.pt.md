@@ -12,7 +12,7 @@ Recursos relacionados as tools na API.
 
 ## Tools collection [/tools]
 
-### Lista todas as ferramentas [GET /tools]
+### Lista todas as ferramentas [GET]
 
 Lista todas as ferramentas na ordem de publicação.
 
@@ -38,11 +38,11 @@ Lista todas as ferramentas na ordem de publicação.
           ]
           
           
-### Pesquisar Tools [GET /tools?tag={string}]
+### Pesquisar Tools [GET ?tag={string}]
 
 Lista as ferramentas através da tag especificada em ordem de publicação.
 
-+ Response 200
++ Response 200 (application/json)
   - Body
   
         [
@@ -64,7 +64,7 @@ Lista as ferramentas através da tag especificada em ordem de publicação.
           ]
 
 
-### Criar ferramenta nova [POST /tools]
+### Criar ferramenta nova [POST]
 
 Vai criar uma nova ferramenta. Recebe um objeto JSON contendo as propriedades da ferramenta, returna todas as propriedades da ferramenta no banco de dados.
 
@@ -102,7 +102,7 @@ Vai criar uma nova ferramenta. Recebe um objeto JSON contendo as propriedades da
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Atualizar Ferramenta [PUT /tools/{id}]
+### Atualizar Ferramenta [PUT /{id}]
 
 Vai atualizar a ferramenta pelo Id. Recebe um objeto contendo as propriedades da ferramenta exceto o título e id, returna todas as propriedades da ferramenta no banco de dados.
 
@@ -141,6 +141,6 @@ Vai atualizar a ferramenta pelo Id. Recebe um objeto contendo as propriedades da
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Deleta Ferramenta [DEL /tools/{id}]
+### Deleta Ferramenta [DEL /{id}]
 
 + Response 204 
