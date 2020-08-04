@@ -16,7 +16,7 @@ Recursos relacionados as tools na API.
 
 Lista todas as ferramentas na ordem de publicação.
 
- - Response 200 (application/json)
+ + Response 200 (application/json)
     - Body
     
           [
@@ -42,7 +42,7 @@ Lista todas as ferramentas na ordem de publicação.
 
 Lista as ferramentas através da tag especificada em ordem de publicação.
 
-- Response 200
++ Response 200
   - Body
   
         [
@@ -68,7 +68,7 @@ Lista as ferramentas através da tag especificada em ordem de publicação.
 
 Vai criar uma nova ferramenta. Recebe um objeto JSON contendo as propriedades da ferramenta, returna todas as propriedades da ferramenta no banco de dados.
 
-- Request (application/json)
++ Request (application/json)
   - Body
 
         {
@@ -83,7 +83,7 @@ Vai criar uma nova ferramenta. Recebe um objeto JSON contendo as propriedades da
                     "calendar" 
                   ]
         }
-- Response 201 (application/json)
++ Response 201 (application/json)
   - Body
   
         {
@@ -106,7 +106,7 @@ Vai criar uma nova ferramenta. Recebe um objeto JSON contendo as propriedades da
 
 Vai atualizar a ferramenta pelo Id. Recebe um objeto contendo as propriedades da ferramenta exceto o título e id, returna todas as propriedades da ferramenta no banco de dados.
 
-- Request (application/json)
++ Request (application/json)
   - Body
   
         {
@@ -121,7 +121,7 @@ Vai atualizar a ferramenta pelo Id. Recebe um objeto contendo as propriedades da
                     "anotation"
                   ],
         }
-- Response 200 (application/json)
++ Response 200 (application/json)
   - Body
   
         {
@@ -143,4 +143,4 @@ Vai atualizar a ferramenta pelo Id. Recebe um objeto contendo as propriedades da
 
 ### Deleta Ferramenta [DEL /tools/{id}]
 
-- Response 204 
++ Response 204 
