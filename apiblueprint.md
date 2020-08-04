@@ -12,7 +12,7 @@ Resources related to tools in the API.
 
 ## Tools collection [/tools]
 
-### List all Tools [GET]
+### List all Tools [GET /tools]
 
 List all tools in order of publication
 
@@ -38,7 +38,7 @@ List all tools in order of publication
           ]
           
           
-### Search Tool [GET ?tag={string}]
+### Search Tool [GET /tools?tag={string}]
 
 List tools by tag specified in order of publication
 
@@ -64,7 +64,7 @@ List tools by tag specified in order of publication
           ]
 
 
-### Create a New Tool [POST]
+### Create a New Tool [POST /tools]
 
 Will create a new tool. It takes a JSON object containing the properties of the tool, it return all properties of the tool in database;
 
@@ -102,7 +102,7 @@ Will create a new tool. It takes a JSON object containing the properties of the 
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Update Tool [PUT /{id}]
+### Update Tool [PUT /tools/{id}]
 
 Will update a tool by ID. It takes a JSON object containing the properties of the tool except by title and id, it return all properties of the tool in database
 
@@ -141,6 +141,6 @@ Will update a tool by ID. It takes a JSON object containing the properties of th
           "updated_at": "2020-08-04T18:01:47.606Z"      // Timezone UTC
           }
 
-### Delete Tool [DEL /{id}]
+### Delete Tool [DEL /tools/{id}]
 
 - Response 204 
