@@ -1,6 +1,6 @@
 FORMAT: A1
 
-[Português](https://github.com/Matan18/bossaBoxAPIChallenge/master/apiblueprint.pt.md)
+[English](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.md)
 
 # Bossa Box API Challenge
 
