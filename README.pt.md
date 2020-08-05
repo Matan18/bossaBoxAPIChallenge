@@ -29,7 +29,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ## Tecnologias
 * [Express (NodeJS)](https://github.com/expressjs/express)
 * [TypeScrypt](https://github.com/Microsoft/TypeScript)
-* [TypeORM]()
+* [TypeORM](https://typeorm.io/#/)
 * [PostgreSQL](https://www.postgresql.org/docs/)
 * Tests:
   * [Supertest](https://github.com/visionmedia/supertest)
