@@ -4,7 +4,7 @@ import 'express-async-errors';
 
 import createConnection from "./infra/typeorm/connection";
 import toolRoutes from "../tools/infra/http/routes/toolRoutes.routes";
-import "./container"
+import "../tools/container"
 import AppError from "./errors/AppError";
 
 createConnection();
