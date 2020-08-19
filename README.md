@@ -17,7 +17,7 @@ This is an API challenged by bossaBox to start on the site, is necessary to crea
 
 ## Requirements
 
-* Is necessary node, yarn or npm, postgres insalled in the machine;
+* Is necessary node, yarn or npm, postgres installed in the machine;
 * Don't forget to run `yarn` or `npm install` to install all dependencies;
 * Create two databases on postgres named as 'bossaBox' and 'bossaBoxTest', be sure that ormconfig.json is with correct configs (host, port, username, password), and that the databases has uuid functions (run the folow SQL query):
 ```
