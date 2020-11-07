@@ -17,7 +17,6 @@ Esse é um desafio de api da BossaBox para começar no site, é necessário cria
 
 ## Requisitos
 
-* Is necessary node, yarn or npm, postgres insalled in the machine;
 * É necessário ter instalado o node, yarn ou npm e postgres na maquina;
 * Don't forget to run `yarn` or `npm install` to install all dependencies;
 * Não esqueça de rodar `yarn`ou `npm install` para instalar todas as dependencias;
