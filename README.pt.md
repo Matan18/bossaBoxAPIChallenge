@@ -18,7 +18,6 @@ Esse é um desafio de api da BossaBox para começar no site, é necessário cria
 ## Requisitos
 
 * É necessário ter instalado o node, yarn ou npm e postgres na maquina;
-* Don't forget to run `yarn` or `npm install` to install all dependencies;
 * Não esqueça de rodar `yarn`ou `npm install` para instalar todas as dependencias;
 * Também crie 2 banco de dados no postgres com os nomes 'bossaBox' e 'bossaBoxTest', tenha certeza que o ormconfig.json está com as configurações corretas (host, port, username e password), e que os bancos de dados possuem as funções de geradores uuid (rode a seguinte query nos bancos):
 ```
