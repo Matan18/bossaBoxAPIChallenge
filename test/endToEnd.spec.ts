@@ -2,7 +2,6 @@ import supertest from "supertest";
 import app from "../src/shared/app";
 import createConnection from "../src/shared/infra/typeorm/connection";
 import { Connection, getConnection } from "typeorm";
-import { response } from "express";
 
 let connection: Connection;
 
@@ -28,6 +27,8 @@ describe("Test on requests", () => {
   })
 
   afterAll(async () => {
+    await connection.query('DELETE FROM tools');
+
     const mainConnection = getConnection();
 
     await connection.close()
@@ -215,10 +216,28 @@ describe("Test on requests", () => {
     expect(response.status).toEqual(204);
   });
 
-  it('should not be able to delete a tool with unexisting id', async () => {
+  it('should not be able to delete a tool with invalid id', async () => {
 
     const response = await supertest(app)
-      .delete(`/tools/${"unexisting-id"}`)
+      .delete(`/tools/${"invalid-id"}`)
+      .set("Accept", 'application/json')
+
+    expect(response.status).toEqual(400);
+  });
+
+  it('should not be able to delete a tool with already deleted id', async () => {
+    const res = await supertest(app)
+      .post('/tools')
+      .send(tool)
+      .set("Accept", 'application/json')
+    const { id } = res.body;
+
+    await supertest(app)
+      .delete(`/tools/${id}`)
+      .set("Accept", 'application/json')
+
+    const response = await supertest(app)
+      .delete(`/tools/${id}`)
       .set("Accept", 'application/json')
 
     expect(response.status).toEqual(404);
