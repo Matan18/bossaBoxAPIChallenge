@@ -23,6 +23,7 @@ This is an API challenged by bossaBox to start on the site, is necessary to crea
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
+* After that, run `yarn typeorm migration:run` or `npm run typeorm migration:run`, to be sure that your database is updated
 
 ## Techs
 * [Express (NodeJS)](https://github.com/expressjs/express)

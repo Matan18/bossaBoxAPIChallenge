@@ -23,6 +23,7 @@ Esse é um desafio de api da BossaBox para começar no site, é necessário cria
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
+* Depois disso execute `yarn typeorm migration:run` ou `npm run typeorm migration:run` isso vai garantir que o banco de dados está atualizado
 
 ## Tecnologias
 * [Express (NodeJS)](https://github.com/expressjs/express)
