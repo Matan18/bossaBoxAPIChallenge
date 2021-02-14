@@ -1,65 +1,65 @@
-# BossaBox API Challenge
+# Desafio de API da BossaBox
 
-[Português](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/README.pt.md)
-  - [BossaBox API Challenge](#bossabox)
-    - [Requirements](#requirements)
-    - [Techs](#techs)
-    - [Estructure](#estructure)
-      - [Repository](#repository)
+[English](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/README.md)
+  - [Desafio de API da BossaBox](#Desafio)
+    - [Requisitos](#requisitos)
+    - [Tecnologias](#tecnologias)
+    - [Estrutura](#estrutura)
+      - [Repositorio](#repositorio)
       - [Services](#services)
       - [Controller](#controller)
       - [Routes](#routes)
-    - [API blueprint](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.md)
+    - [Diagrama da API (blueprint)](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.pt.md)
      - [License](#license)
 
 
-This is an API challenged by bossaBox to start on the site, is necessary to create a CRUD with dev tools, which will be created with title, link, description and tags properties.
+Esse é um desafio de api da BossaBox para começar no site, é necessário criar um CRUD (Create, Read, Update, Delete), de ferramentas de desenvolvimento, que terão os atributos title, link, description e tags.
 
-## Requirements
+## Requisitos
 
-* Is necessary node, yarn or npm, postgres installed in the machine;
-* Don't forget to run `yarn` or `npm install` to install all dependencies;
-* Create two databases on postgres named as 'bossaBox' and 'bossaBoxTest', be sure that ormconfig.json is with correct configs (host, port, username, password), and that the databases has uuid functions (run the folow SQL query):
+* É necessário ter instalado o node, yarn ou npm e postgres na maquina;
+* Não esqueça de rodar `yarn`ou `npm install` para instalar todas as dependencias;
+* Também crie 2 banco de dados no postgres com os nomes 'bossaBox' e 'bossaBoxTest', tenha certeza que o ormconfig.json está com as configurações corretas (host, port, username e password), e que os bancos de dados possuem as funções de geradores uuid (rode a seguinte query nos bancos):
 ```
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ```
-* After that, run `yarn typeorm migration:run` or `npm run typeorm migration:run`, to be sure that your database is updated
+* Depois disso execute `yarn typeorm migration:run` ou `npm run typeorm migration:run` isso vai garantir que o banco de dados está atualizado
 
-## Techs
+## Tecnologias
 * [Express (NodeJS)](https://github.com/expressjs/express)
 * [TypeScrypt](https://github.com/Microsoft/TypeScript)
-* [TypeORM]()
+* [TypeORM](https://typeorm.io/#/)
 * [PostgreSQL](https://www.postgresql.org/docs/)
 * Tests:
   * [Supertest](https://github.com/visionmedia/supertest)
   * [Jest](https://jestjs.io/docs/en/getting-started)
 
-## Estructure
+## Estrutura
 
-The project can be separated in routes, controller, services and repository:
+O projeto pode ser separado em router, controller, services e repositorio:
 
-### Repository
+### Repositorio
 
-This part of the aplication is used to manipulate the databases, I create an interface IToolRepository to base myself on creating the repository and used the [`tsyringe`](https://github.com/microsoft/tsyringe) lib to inject the right dependence;
+Essa parte da aplicação é usada pra manipular os bancos de dados, eu criei um interface IToolRepository para me baser na criação do repositorio e usei a biblioteca [`tsyringe`](https://github.com/microsoft/tsyringe) pra poder fazer a injeção de dependencia nos Services;
 
 ### Services
 
-This part is for business rules, of course, as simple project, there is not much rule to apply, but I believe that separate this functions can be more effective, and readable.
-Each service will be called by a controller, and will interact with the repository to verify the rules, and return the right answer.
+Essa parte é pra fazer a regra de negócio, claro, como o projeto é simples, não tem muita regra pra aplicar, mas eu acredito que separar essas funcionalidades pode ser mais efetivo pra possíveis inclusões e também mais legível;
+Cada service vai ser chamado por um controller, e vai interagir com o repositorio pra verificar as regras, e retornar a resposta certa
 
 ### Controller
 
-In a bigger project this part will be more useful.
-This part now is tied to the router, it recieve the entire request and response, filters useful information and send to the service, after service do their work, the controller return it to the client.
-What I mean by this part is will be more useful latter is that, if I had a to work with more than 1 object (Tools, Users), I would separate clearly the routes in controllers. 
+Num projeto maior, essa parte com certeza seria mais útil.
+Essa parte hoje está muito atrelada ao Router, ela recebe tudo das requisições e informações das repostas HTTP, filtra as informações úteis e manda pro service, depois do service fazer seu trabalho, ela retorna pro client;
+O que eu quero dizer com essa parte seria mais útil em um projeto maior, é que se eu tivesse que trabalhar com mais de um objeto (hoje tenho apenas Tools, mas se fossem Tools, Users, ...), eu poderia separar com mais clareza os Routers dos controllers.
 
-### Routes
+### Router
 
-This part of the aplication must recieve the request, and send this to the right controller function, a little simple, I just added a condition in get(tools) by if there's a query named tag, will call diferent controller. This way I was able to keep the same route for both listing and filtering;
+Essa parte da aplicação deve receber a requisição, e mandar para o função correta do controller, um pouco simples eu diria, aproveitei da facilidade do express pra adicionar uma condição na requisição GET (tools), assim, se essa requisição tiver um parâmetro do tipo query chamada tags, eu mando pra filtragem, se não mando listar tudo, assim eu consigo manter a mesma rota pras 2 opções;
 
-### API Blueprint
+### Diagrama da API
 
-Click [here](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.md) to access the API blueprint
+Clique [aqui](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/apiblueprint.pt.md) para acessar o diagrama da API
 
 ### License
 
