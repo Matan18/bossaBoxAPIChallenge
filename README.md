@@ -1,6 +1,5 @@
 # Desafio de API da BossaBox
 
-[English](https://github.com/Matan18/bossaBoxAPIChallenge/blob/master/README.md)
   - [Desafio de API da BossaBox](#Desafio)
     - [Requisitos](#requisitos)
     - [Tecnologias](#tecnologias)
